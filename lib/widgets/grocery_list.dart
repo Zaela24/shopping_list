@@ -47,7 +47,9 @@ class _GroceryListState extends State<GroceryList> {
         itemCount: _groceryItems.length,
         itemBuilder: (ctx, index) => Dismissible(
           key: ValueKey(_groceryItems[index].id),
-          onDismissed: _removeItem,
+          onDismissed: (direction) {
+            _removeItem(_groceryItems[index]);
+          },
           child: ListTile(
             title: Text(
               _groceryItems[index].name,
